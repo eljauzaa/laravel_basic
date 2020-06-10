@@ -18,10 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/order', function () {
-    $orderan = [
-        'makanan' => 'sambal goreng ati', 
-        'pedes' => 'tidak pedas',
-        'harga' => 6000
+    $pizzas = [
+        ['type' => 'hawaiian', 'base' => 'cheesy crust'],
+        ['type' => 'volcano', 'base' => 'garlic crust'],
+        ['type' => 'veg supreme', 'base' => 'thin & crispy'],
     ];
-    return view('order', $orderan);
+
+    // $name = request('name');
+    // $age = request('age');
+    return view('order', [
+        'pizzas' => $pizzas,
+        'name'  => request('name'),
+        'age' => request('age')
+        ]);
+});
+
+Route::get('/order/{id}', function ($id) {
+// use the $id variable to query the db for a record
+    return view('details',['id' => $id]);
+
 });
