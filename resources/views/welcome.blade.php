@@ -21,6 +21,8 @@
         <div class="title m-b-md">
             Catering terbaik dunia!
         </div>
+        <p class="mssg">{{ session('mssg') }}</p>
+        <a href="/pizzas/create">Order a pizza</a>
     </div>
 </div>
 @endsection
